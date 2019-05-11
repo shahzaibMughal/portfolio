@@ -1,21 +1,28 @@
+
+
 $background: #252523;
 $background-dark: #181818;
 $icon-default-color : #353535;
-$icon-active-color: #00ffff;
+$primary-color: #00ffff;
+$secondary-color: #fc6557;
+
+@function test_backgroud($color){
+  @return rgba($color,0.2);
+}
 
 
 *{
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 body{
   background: $background;
 }
 
 nav{
-  // position: fixed;
-  // top: 0;
-  // left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   background: $background-dark;
   display: inline-flex;
   height: 100vh;
@@ -41,14 +48,14 @@ nav{
           height: 38px;
         }
         span{
-          color: $icon-active-color;
+          color: $primary-color;
           font-size: 16px;
           display: none;
           text-transform: uppercase;
         }
 
         &.active{
-          fill: $icon-active-color;
+          fill: $primary-color;
         }
         &:hover{
           cursor: pointer;
@@ -81,4 +88,54 @@ nav{
     }
 
   }
+}
+
+
+header{
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  width: 100vw;
+  padding-left: 50px;
+  // background: test_backgroud(red);
+  align-items: center;
+  box-sizing: border-box;
+  .main_heading_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .main_heading{
+      color: white;
+      font-size: 8em;
+      font-weight: bold;
+      line-height: 0.9em;
+      word-spacing: 5px;
+      span{
+        color: $secondary-color;
+      }
+    }
+    .sub_heading{
+      margin-top: 16px;
+      color: white;
+      font-weight: 300;
+      font-size: 2em;
+    }
+    .button{
+      font-size: 1.8em;
+      padding: 8px 16px;
+      border: 2px solid $primary-color;
+      border-radius: 2px;
+      font-weight: 300;
+      color: $primary-color;
+      margin-top: 36px;
+
+      &:hover{
+        cursor: pointer;
+        background: $primary-color;
+        color: $background;
+      }
+    }
+  }
+
 }
